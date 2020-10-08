@@ -1,0 +1,346 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,700,300italic);
+*, *:before, *:after { box-sizing: border-box; }
+html { font-size: 100%;  }
+body { 
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  background: #d0e6ef; 
+  color: #666;
+}
+
+.wrapper {
+  max-width: 75%;
+  margin: auto;
+}
+
+
+h1 { 
+  color: #555; 
+  margin: 3rem 0 1rem 0; 
+  padding: 0;
+  font-size: 1.5rem;
+}
+
+textarea {
+  width: 100%;
+  min-height: 200px;
+  resize: none;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  color: #666;
+  box-shadow: inset 0 0 0.25rem #ddd;
+  &:focus {
+    outline: none;
+    border: 1px solid darken(#ddd, 5%);
+    box-shadow: inset 0 0 0.5rem darken(#ddd, 5%);
+  }
+  &[placeholder] { 
+    font-style: italic;
+    font-size: 0.875rem;
+  }
+}
+
+#the-count {
+  float: right;
+  padding: 0.1rem 0 0 0;
+  font-size: 0.875rem;
+}
+
+#keyboard {
+ /* We first create a flex layout context */
+  display: flex;
+  
+  /* Then we define the flow direction 
+     and if we allow the items to wrap 
+   * Remember this is the same as:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+  flex-flow: row wrap;
+  
+  /* Then we define how is distributed the remaining space */
+  justify-content: space-around;
+  
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+
+    #keyboard button {
+    
+    margin: 0 5px 5px 0;
+	width: 40px;
+    height: 40px;
+
+    line-height: 20px;
+    text-align: center;
+    /*background: #fff;
+    border: 1px solid #f9f9f9;*/
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    }
+        .capslock, .tab, .left-shift {
+        clear: left;
+        }
+            #keyboard .tab, #keyboard .delete {
+            width: 80px;
+            }
+            #keyboard .capslock {
+            width: 90px;
+            }
+            #keyboard .return {
+            width: 87px;
+            }
+            #keyboard .left-shift {
+            width: 105px;
+            }
+            #keyboard .right-shift {
+            width: 119px;
+            }
+			#keyboard .igletter {
+            width: 40px;
+            }
+        .lastitem {
+        margin-right: 0;
+        }
+        .uppercase {
+        text-transform: uppercase;
+        }
+        #keyboard .space {
+        
+        width: 100%;
+        }
+        .on {
+        display: none;
+        }
+        #keyboard li:hover {
+        position: relative;
+        top: 1px;
+        left: 1px;
+        border-color: #e5e5e5;
+        cursor: pointer;
+        }
+		
+/* Galaxy phone */
+	@media (min-width: 360px) {
+  .btn {
+    font-size:8px;
+  }
+	 #keyboard button {
+    
+	width:1px;
+    height: 1px;
+
+    line-height: 1px;
+    text-align: center;
+    /*background: #fff;
+    border: 1px solid #f9f9f9;*/
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    }
+        .capslock, .tab, .left-shift {
+        /*clear: left;*/
+        }
+            #keyboard .tab, #keyboard .delete {
+            width: 10px;
+            }
+            #keyboard .capslock {
+            width: 5px;
+            }
+            #keyboard .return {
+            width: 27px;
+            }
+            #keyboard .left-shift {
+            width: 15px;
+            }
+            #keyboard .right-shift {
+            width: 20px;
+            }
+			#keyboard .igletter {
+            width: 5px;
+            }
+        .lastitem {
+        margin-right: 0;
+        }
+        .uppercase {
+        text-transform: uppercase;
+        }
+        #keyboard .space {
+        
+        width: 100%;
+        }
+        
+   
+  
+}
+	@media (min-width: 576px) {
+  .btn {
+    font-size:20px;
+  }
+	 #keyboard button {
+    
+	width:15px;
+    height: 20px;
+
+    line-height: 0.1px;
+    text-align: center;
+    /*background: #fff;
+    border: 1px solid #f9f9f9;*/
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    }
+        .capslock, .tab, .left-shift {
+        clear: right;
+        }
+            #keyboard .tab{
+            width: 50px;
+            }
+			#keyboard .delete {
+				width: 75px;
+				
+			}
+            #keyboard .capslock {
+            width: 60px;
+            }
+            #keyboard .return {
+            width: 75px;
+            }
+            #keyboard .left-shift {
+            width: 50px;
+            }
+            #keyboard .right-shift {
+            width: 50px;
+            }
+			#keyboard .igletter {
+            width: 5px;
+            }
+        .lastitem {
+        margin-right: 0;
+        }
+        .uppercase {
+        text-transform: uppercase;
+        }
+        #keyboard .space {
+        
+        width: 100%;
+        }
+        
+   
+  
+}
+		
+	@media (min-width: 768px) {
+  .btn {
+    font-size:20px;
+    padding:6px 12px;
+  }
+  #keyboard button {
+    
+    margin: 0 5px 5px 0;
+	width: 29px;
+    height: 29px;
+
+    line-height: 3px;
+    text-align: center;
+    /*background: #fff;
+    border: 1px solid #f9f9f9;*/
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    }
+        .capslock, .tab, .left-shift {
+        clear: left;
+        }
+            #keyboard .tab, #keyboard .delete {
+            width: 73px;
+            }
+            #keyboard .capslock {
+            width: 60px;
+            }
+            #keyboard .return {
+            width: 73px;
+            }
+            #keyboard .left-shift {
+            width: 81px;
+            }
+            #keyboard .right-shift {
+            width: 85px;
+            }
+			#keyboard .igletter {
+            width: 29px;
+            }
+        .lastitem {
+        margin-right: 0;
+        }
+        .uppercase {
+        text-transform: uppercase;
+        }
+        #keyboard .space {
+        
+        width: 100%;
+        }
+        
+}
+
+	@media (min-width: 992px) {
+  .btn {
+    font-size:20px;
+    padding:8px 14px;
+  }
+  #keyboard button {
+    
+    margin: 0 7px 7px 0;
+	width: 35px;
+    height: 35px;
+
+    line-height: 3px;
+    text-align: center;
+    /*background: #fff;
+    border: 1px solid #f9f9f9;*/
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    }
+        .capslock, .tab, .left-shift {
+        clear: left;
+        }
+            #keyboard .tab, #keyboard .delete {
+            width: 79px;
+            }
+            #keyboard .capslock {
+            width: 90px;
+            }
+            #keyboard .return {
+            width: 79px;
+            }
+            #keyboard .left-shift {
+            width: 109px;
+            }
+            #keyboard .right-shift {
+            width: 105px;
+            }
+			#keyboard .igletter {
+            width: 35px;
+            }
+        .lastitem {
+        margin-right: 0;
+        }
+        .uppercase {
+        text-transform: uppercase;
+        }
+        #keyboard .space {
+        
+        width: 100%;
+        }
+        
+}
+
+	/* change all .btn to .btn-sm size on xs */
+@include media-breakpoint-between(xs,sm){
+  .btn {
+      @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-sm, $btn-border-radius-sm);
+  }
+}
+		
+
+		
