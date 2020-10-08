@@ -23,9 +23,6 @@
 <div class="wrapper">
 <div class = "row" id ="keyboard">
 
-	<!--<div class ="container1">-->
-	<!--<div class="item1">-->
-
         <div class="col-md-auto"><button type="button" class="symbol btn btn-outline-secondary"><span class="off">`</span><span class="on">~</span></button>
      <button type="button" class="symbol btn btn-outline-secondary"><span class="off">1</span><span class="on">!</span></button>
        <button type="button" class="symbol btn btn-outline-secondary"><span class="off">2</span><span class="on">@</span></button>
@@ -39,7 +36,8 @@
        <button type="button" class="symbol btn btn-outline-secondary"><span class="off">0</span><span class="on">)</span></button>
        <button type="button" class="symbol btn btn-outline-secondary"><span class="off">-</span><span class="on">_</span></button>
       <button type="button" class="symbol btn btn-outline-secondary"><span class="off">=</span><span class="on">+</span></button>
-     <button type="button" class="delete lastitem btn btn-outline-secondary">delete</button></div>
+     <button type="button" class="delete lastitem btn btn-outline-secondary">delete</button>
+     </div>
 </div>
 		<!--</div>-->
 		<!--<div class="item1">-->
@@ -127,9 +125,9 @@
         <div class="col-md-auto"><button type="button" class="space lastitem btn btn-outline-secondary">&nbsp;</button>
 		</div>
 </div>
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+</div>
 <script type="text/javascript" src="keyboard1.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 </body>
 </html>
