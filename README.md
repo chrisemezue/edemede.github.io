@@ -5,3 +5,6 @@ The presence of a specialized keyboard for the Igbo language, will foster typing
 
 Edemede is the the first complete online Igbo Keyboard.
 Edemede is free, open-source online keyboard with the special Igbo diacritics.
+Although in its early stage, Edemede contains the full functionalities to make one type easily. There will be updates to improve the platform on a regular basis.
+
+[Click here to start typing with Edemede!](https://chrisemezue.github.io/edemede.github.io/)
