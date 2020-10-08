@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -119,9 +119,7 @@
         <button type="button" class="symbol btn btn-outline-secondary"><span class="off">.</span><span class="on">&gt;</span></button>
         <button type="button" class="symbol btn btn-outline-secondary"><span class="off">/</span><span class="on">?</span></button>
         <button type="button" class="right-shift lastitem btn btn-outline-secondary">shift</button>
-		<!--</div>-->
-
-		<!--<div>-->
+		
 		</div>
 </div>
 <div class="row" id="keyboard">
@@ -129,19 +127,6 @@
         <div class="col-md-auto"><button type="button" class="space lastitem btn btn-outline-secondary">&nbsp;</button>
 		</div>
 </div>
-		<!--</div>-->
-		
-		</ul>
-		</div>
-		
-    
-
-<!--</div>
-</div>-->
-
-   
-  
-
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 <script type="text/javascript" src="keyboard1.js"></script>
