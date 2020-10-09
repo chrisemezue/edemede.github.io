@@ -8,3 +8,6 @@ Edemede is free, open-source online keyboard with the special Igbo diacritics.
 Although in its early stage, Edemede contains the full functionalities to make one type easily. There will be updates to improve the platform on a regular basis.
 
 [Start typing with Edemede!](https://chrisemezue.github.io/edemede.github.io/)
+
+# Copyright
+Edemede was designed by Handel C. Emezue and Chris C. Emezue.
