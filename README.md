@@ -10,4 +10,4 @@ Although in its early stage, Edemede contains the full functionalities to make o
 [Start typing with Edemede!](https://chrisemezue.github.io/edemede.github.io/)
 
 # Copyright
-Edemede was designed by Handel C. Emezue and Chris C. Emezue.
+Edemede was designed by Chris C. Emezue and Handel C. Emezue.
