@@ -169,8 +169,7 @@ textarea {
 
 @media only screen and (max-width:600px){
 .wrapperKey{
-max-width:100%;
-
+width:100%;
 }
 #tab-btn,#del-btn, #caps-btn,#return-btn,#shift-btn,#rshift-btn{
 font-size: 2px;
