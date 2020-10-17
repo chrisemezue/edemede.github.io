@@ -126,19 +126,19 @@ textarea {
         clear: left;
         }
             #keyboard .tab, #keyboard .delete {
-            width: 80px;
+          /*  width: 80px;*/
             }
             #keyboard .capslock {
-            width: 90px;
+            /*width: 90px;*/
             }
             #keyboard .return {
-            width: 87px;
+            /*width: 87px;*/
             }
             #keyboard .left-shift {
-            width: 105px;
+            /*width: 105px;*/
             }
             #keyboard .right-shift {
-            width: 119px;
+            /*width: 119px;*/
             }
 			#keyboard .igletter{
 			  background-color: #173c57;
@@ -168,6 +168,10 @@ textarea {
 
 
 @media only screen and (max-width:600px){
+.wrapperKey{
+max-width:100%;
+
+}
 #tab-btn,#del-btn, #caps-btn,#return-btn,#shift-btn,#rshift-btn{
 font-size: 2px;
   padding:2px;
@@ -176,7 +180,7 @@ font-size: 2px;
 #keyboard button {
   
     
-	width: 15px;
+	min-width: 15px;
     height: 22px;
 	font-size: 15px;
 	padding:1px;
