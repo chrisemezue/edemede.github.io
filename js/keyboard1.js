@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	
 	if($(window).width() < 600){
+		$('#write').prop('readonly', true);
 		//console.log("Less than 360");
 		$("#tab-btn").replaceWith('<button type="button" class="tab btn btn-outline-secondary" id="tab-btn"><img src="images/tab.png"></button>');
 		$("#del-btn").replaceWith('<button type="button" class="delete lastitem btn btn-outline-secondary" id="del-btn"><img src="images/del.png"></button>');
@@ -12,9 +13,17 @@ $(document).ready(function(){
 	}
 });
 
-
+jQuery.get('essentials/ig-vocab.txt', function(data) {
 $(function(){
-	//Adding img tags for del, caps lock, shift and enter
+	
+	//Constants for suggestion box
+	const lines = data.replace(/(\r\n|\n|\r)/gm," ").split(" ");
+	//alert(lines.length);
+		
+	var words = lines.join(' ');
+	var toEnd = false;
+	var strCompare=''
+	var sArray='<div id="suggestions">';
 	
 	
 	//var $write = $('#write'),
@@ -31,8 +40,39 @@ $(function(){
 		var xTriggered =0;
 		var countA=0,countE=0,countI=0,countO=0,countU=0;
 		
-				
-		let updateContent = function(new_content, is_clear=false) {
+		let showSuggestions = function(item,index){
+	
+	sArray +='<button type="button" class="suggestBtn letter btn btn-outline-secondary">'+item+'</button>';
+	
+		}
+		let compare = function(word,dict){
+	var occurences = dict.filter(x => x.startsWith(word)) ;
+	//alert(sArray);
+	//alert(occurences);
+	if(occurences.length!=0){
+		var newOccurence=[];
+		for(var i=0;i<8;i++){
+			var rand = occurences[Math.floor(Math.random() * occurences.length)]
+				newOccurence.push(rand);
+		}
+		
+		newOccurence.forEach(showSuggestions);
+		//alert(sArray);	
+		//$("#suggestions").val("");
+		//$("#suggestions").html("");
+		//$("#suggestions").val(sArray);
+		//$("#suggestions").html(sArray);
+	
+		$("#suggestions").replaceWith(sArray+'</div>');
+		
+		sArray='<div id="suggestions">';
+		
+		
+	}
+	
+	
+}
+		let updateContent = function(new_content, is_clear=false,val=1) {
 			if (is_clear) {
 		$("#write").val("");
 		$("#write").html("");
@@ -45,8 +85,8 @@ $(function(){
 		//$("#write").html($("#write").html() + new_content);
 		$("#write").val(new_content);
 		$("#write").html(new_content);
-		prevStart=prevStart + 1;
-		prevEnd=prevEnd + 1;
+		prevStart=prevStart + val;
+		prevEnd=prevEnd + val;
 		}
 		}
 		let decodeEntity = function(encodedId,caps=false) {
@@ -66,6 +106,7 @@ $(function(){
 		prevEnd = textArea.selectionEnd;
 		//prevStart = startPosition;
 		//prevEnd = endPosition;
+		strCompare='';
 		
 		
 		
@@ -80,6 +121,7 @@ $(function(){
 		
 	});	
 	$( "#write" ).keydown(function(e){
+		strCompare='';
 		toCheck=true;
 		//Get area selection
 		var KtextArea = document.getElementById("write");
@@ -290,8 +332,8 @@ $(function(){
   //console.log(e.which);
 
 });
-	$('.keyboard button').click(function(){
-		
+	$('#keyboard button').click(function(){
+		//alert("Button clicked");
 		if (toCheck){
 			//UPDATE PREV_START AND PREV_END
 	var textArea = document.getElementById("write");
@@ -335,7 +377,7 @@ $(function(){
 		//alert($write.value);
 		var $this = $(this),
 			character = $this.html(); // If it's a lowercase letter, nothing happens to this variable
-			//alert(character);
+			//console.log(character);
 		// Shift keys
 		if ($this.hasClass('left-shift') || $this.hasClass('right-shift')) {
 			$('.letter').toggleClass('uppercase');
@@ -410,11 +452,60 @@ $(function(){
 		}
 
 		
+		//CODE FOR SUGGESTION BOX
+		toEnd=false;
+	if ($this.hasClass('delete') || $this.hasClass('space') ||$this.hasClass('tab')|| $this.hasClass('return')|| $this.hasClass('left-shift')|| $this.hasClass('right-shift') )
+	{
+		if ($this.hasClass('delete') ){
+		strCompare = strCompare.substr(0,strCompare.length -1)
+		console.log("after deletion: "+strCompare);
+	}
+	else{
+		//console.log("Has class");
+		toEnd=true;
+		strCompare='';
+	}
+	}
+	
+	else{
+		strCompare+=character;
+		
+	}
+	if (!toEnd){
+		
+		compare(strCompare,lines);
+		
+	}
+$(".suggestBtn").click(function(){
+	//alert("Suggestion clicked");
+	
+	//get val of button
+	 //var btnChar = decodeEntity('suggestBtn');
+	 var btnChar = $(this).html();
+	 console.log(btnChar);
+	 console.log(strCompare.length);
+	 console.log(prevStart);
+	 console.log(firstContent);
+	 console.log("Second content: "+secondContent);
+	 
+	 //remove from 1st content with strcomapre length -1 
+	firstContent=firstContent.substr(0,firstContent.length-(strCompare.length-1));
+	updateContent(firstContent+btnChar+' '+secondContent,false,btnChar.length+1);
+	strCompare='';
+	//Add at correct place, remove th previous words from First content
+	
+	//update
+	
+});
+
+		
 		
 		//console.log("writing character");
 		// Add the character
 		//alert($write.value + character);
+		
 		//$write.html(document.getElementById("write").value + character);
+		console.log("New fcon:" + firstContent);
 		updateContent(firstContent+character+secondContent);
 		//$write.innerHTML = $write.value + character;
 		//console.log(character);
@@ -423,4 +514,5 @@ $(function(){
 	  //console.log("prev end after ok: "+prevEnd);
 		
 	});
+});
 });
