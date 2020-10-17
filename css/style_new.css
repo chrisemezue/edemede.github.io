@@ -181,6 +181,25 @@ textarea {
 max-width:100%;
 
 }
+.keyboard button {
+ 
+	font-size: 80%;
+	padding:5px;
+
+    }
+}
+
+@media only screen and (max-width: 347px) {
+	.wrapperKey{
+max-width:100%;
+
+}
+.keyboard button {
+ 
+	font-size: 60%;
+	padding:5px;
+
+    }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
