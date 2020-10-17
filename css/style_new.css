@@ -1,21 +1,31 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,700,300italic);
-*, *:before, *:after { box-sizing: border-box; }
+/*@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,700,300italic);
+*, *:before, *:after { box-sizing: border-box; }*/
 html { font-size: 100%;  }
 body { 
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
-  background: #d0e6ef; 
-  color: #666;
+  font-size: 22px;
+ /* background: #d0e6ef;
+	color: #666; */
+ background:#ebf2f5;
+  
 }
 
 .wrapper {
   max-width: 75%;
   margin: auto;
 }
+.wrapperKey{
+max-width:75%;
+margin:auto;
+background:#2c3c47;
+	border-radius: 8px;
+  border: 1px solid #ddd;
 
+}
 
 h1 { 
-  color: #555; 
+  /*color: #0684b8 ;*/
+	color;#173c57;
   margin: 3rem 0 1rem 0; 
   padding: 0;
   font-size: 1.5rem;
@@ -23,12 +33,12 @@ h1 {
 
 textarea {
   width: 100%;
-  min-height: 200px;
+  min-height: 250px;
   resize: none;
   border-radius: 8px;
   border: 1px solid #ddd;
   padding: 0.5rem;
-  color: #666;
+  color: #0c0d0d;
   box-shadow: inset 0 0 0.25rem #ddd;
   &:focus {
     outline: none;
@@ -37,7 +47,7 @@ textarea {
   }
   &[placeholder] { 
     font-style: italic;
-    font-size: 0.875rem;
+    font-size: 10px;
   }
 }
 
@@ -47,37 +57,68 @@ textarea {
   font-size: 0.875rem;
 }
 
+
+#tab-btn img, #del-btn img, #caps-btn img, #return-btn img,#shift-btn img,#rshift-btn img{
+	width: 11;
+    height: 11;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+
+
+
+}
 #keyboard {
  /* We first create a flex layout context */
   display: flex;
+  justify-content: center;
+	padding:0;
+	margin:0;
+	
+	width:100%;
+	display:flex;
+	flex-direction:row;
+
+
   
   /* Then we define the flow direction 
      and if we allow the items to wrap 
    * Remember this is the same as:
    * flex-direction: row;
    * flex-wrap: wrap;
-   */
+   
   flex-flow: row wrap;
   
-  /* Then we define how is distributed the remaining space */
-  justify-content: space-around;
+ 
+  
   
   padding: 0;
   margin: 0;
   list-style: none;
+  */
 }
 
 
     #keyboard button {
-    
-    margin: 0 5px 5px 0;
-	width: 40px;
+     background-color: #334552;
+ 
+  color:  #e5e5e5;
+ 
+  text-align: center;
+  text-decoration: none;
+  display: block;
+    /*margin: 0 5px 5px 0;
+	width: 40px;*/
     height: 40px;
+	font-size: 20px;
+	padding:10px;
 
     line-height: 20px;
     text-align: center;
     /*background: #fff;
     border: 1px solid #f9f9f9;*/
+	flex-grow:1;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     }
@@ -99,9 +140,11 @@ textarea {
             #keyboard .right-shift {
             width: 119px;
             }
-			#keyboard .igletter {
-            width: 40px;
-            }
+			#keyboard .igletter{
+			  background-color: #173c57;
+			
+			}
+			
         .lastitem {
         margin-right: 0;
         }
@@ -115,231 +158,56 @@ textarea {
         .on {
         display: none;
         }
-        #keyboard li:hover {
+        #keyboard button:hover {
         position: relative;
         top: 1px;
         left: 1px;
         border-color: #e5e5e5;
         cursor: pointer;
         }
-		
-/* Galaxy phone */
-	@media (min-width: 360px) {
-  .btn {
-    font-size:8px;
-  }
-	 #keyboard button {
-    
-	width:1px;
-    height: 1px;
 
-    line-height: 1px;
-    text-align: center;
-    /*background: #fff;
-    border: 1px solid #f9f9f9;*/
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
+
+@media only screen and (max-width:600px){
+#tab-btn,#del-btn, #caps-btn,#return-btn,#shift-btn,#rshift-btn{
+font-size: 2px;
+  padding:2px;
+}
+
+#keyboard button {
+  
+    
+	width: 15px;
+    height: 22px;
+	font-size: 15px;
+	padding:1px;
+	line-height: 16px;
+
     }
         .capslock, .tab, .left-shift {
-        /*clear: left;*/
+        clear: left;
         }
             #keyboard .tab, #keyboard .delete {
-            width: 10px;
-            }
-            #keyboard .capslock {
-            width: 5px;
-            }
-            #keyboard .return {
-            width: 27px;
-            }
-            #keyboard .left-shift {
-            width: 15px;
-            }
-            #keyboard .right-shift {
             width: 20px;
             }
-			#keyboard .igletter {
-            width: 5px;
-            }
-        .lastitem {
-        margin-right: 0;
-        }
-        .uppercase {
-        text-transform: uppercase;
-        }
-        #keyboard .space {
-        
-        width: 100%;
-        }
-        
-   
-  
-}
-	@media (min-width: 576px) {
-  .btn {
-    font-size:20px;
-  }
-	 #keyboard button {
-    
-	width:15px;
-    height: 20px;
-
-    line-height: 0.1px;
-    text-align: center;
-    /*background: #fff;
-    border: 1px solid #f9f9f9;*/
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    }
-        .capslock, .tab, .left-shift {
-        clear: right;
-        }
-            #keyboard .tab{
-            width: 50px;
-            }
-			#keyboard .delete {
-				width: 75px;
-				
-			}
             #keyboard .capslock {
-            width: 60px;
+            width: 25px;
             }
             #keyboard .return {
-            width: 75px;
+            width: 28px;
             }
             #keyboard .left-shift {
-            width: 50px;
+            width: 38px;
             }
             #keyboard .right-shift {
-            width: 50px;
+            width: 38px;
             }
 			#keyboard .igletter {
-            width: 5px;
+            width: 13px;
             }
-        .lastitem {
-        margin-right: 0;
-        }
-        .uppercase {
-        text-transform: uppercase;
-        }
-        #keyboard .space {
-        
-        width: 100%;
-        }
-        
-   
-  
-}
-		
-	@media (min-width: 768px) {
-  .btn {
-    font-size:20px;
-    padding:6px 12px;
-  }
-  #keyboard button {
-    
-    margin: 0 5px 5px 0;
-	width: 29px;
-    height: 29px;
+       
+     
 
-    line-height: 3px;
-    text-align: center;
-    /*background: #fff;
-    border: 1px solid #f9f9f9;*/
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    }
-        .capslock, .tab, .left-shift {
-        clear: left;
-        }
-            #keyboard .tab, #keyboard .delete {
-            width: 73px;
-            }
-            #keyboard .capslock {
-            width: 60px;
-            }
-            #keyboard .return {
-            width: 73px;
-            }
-            #keyboard .left-shift {
-            width: 81px;
-            }
-            #keyboard .right-shift {
-            width: 85px;
-            }
-			#keyboard .igletter {
-            width: 29px;
-            }
-        .lastitem {
-        margin-right: 0;
-        }
-        .uppercase {
-        text-transform: uppercase;
-        }
-        #keyboard .space {
-        
-        width: 100%;
-        }
-        
-}
 
-	@media (min-width: 992px) {
-  .btn {
-    font-size:20px;
-    padding:8px 14px;
-  }
-  #keyboard button {
-    
-    margin: 0 7px 7px 0;
-	width: 35px;
-    height: 35px;
-
-    line-height: 3px;
-    text-align: center;
-    /*background: #fff;
-    border: 1px solid #f9f9f9;*/
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    }
-        .capslock, .tab, .left-shift {
-        clear: left;
-        }
-            #keyboard .tab, #keyboard .delete {
-            width: 79px;
-            }
-            #keyboard .capslock {
-            width: 90px;
-            }
-            #keyboard .return {
-            width: 79px;
-            }
-            #keyboard .left-shift {
-            width: 109px;
-            }
-            #keyboard .right-shift {
-            width: 105px;
-            }
-			#keyboard .igletter {
-            width: 35px;
-            }
-        .lastitem {
-        margin-right: 0;
-        }
-        .uppercase {
-        text-transform: uppercase;
-        }
-        #keyboard .space {
-        
-        width: 100%;
-        }
-        
-}
-
-	/* change all .btn to .btn-sm size on xs */
-@include media-breakpoint-between(xs,sm){
-  .btn {
-      @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-sm, $btn-border-radius-sm);
-  }
 }
 		
 
