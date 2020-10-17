@@ -175,25 +175,6 @@ textarea {
         }
 
 
-@media only screen and (max-width:573px){
-
-}
-@media only screen and (max-width:431px){
-
-.keyboard button {
- 
-	font-size: 80%;
-	padding:5px;
-
-    }
-
-
-
-
-
-
-}
-
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
 	.wrapperKey{
