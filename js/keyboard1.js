@@ -22,6 +22,8 @@ $(function(){
 		capslock = false;
 		keyCapsLock=false;
 		
+		var toCheck=false;
+		
 		var prevStart =$("#write").val.length ;
 		var prevEnd =$("#write").val.length ;
 		//var startPosition = prevStart;
@@ -47,7 +49,6 @@ $(function(){
 		prevEnd=prevEnd + 1;
 		}
 		}
-		
 		let decodeEntity = function(encodedId,caps=false) {
 		  var diac = document.getElementById(encodedId);
 		  //textArea.innerHTML = encodedString;
@@ -79,6 +80,7 @@ $(function(){
 		
 	});	
 	$( "#write" ).keydown(function(e){
+		toCheck=true;
 		//Get area selection
 		var KtextArea = document.getElementById("write");
 		
@@ -103,6 +105,21 @@ $(function(){
 	let KCharacter = '';
 	//if (e.which=73){e.preventDefault();}
   if ( e.shiftKey ) {
+	  if (toCheck){
+			//UPDATE PREV_START AND PREV_END
+	var textArea = document.getElementById("write");
+		//startPosition = textArea.selectionStart;
+		//endPosition = textArea.selectionEnd;
+		//alert("A CLICK HAS BEEN MADE");
+		prevStart = textArea.selectionStart;
+		prevEnd = textArea.selectionEnd;
+		//prevStart = startPosition;
+		//prevEnd = endPosition;
+	console.log(prevStart);
+	console.log(prevEnd);
+		
+			toCheck=false;
+		}
 	 // console.log("prev start after shift: "+prevStart);
 	  //console.log("prev end after shift: "+prevEnd);
 	  //countA=0;
@@ -275,9 +292,25 @@ $(function(){
 });
 	$('#keyboard button').click(function(){
 		
+		if (toCheck){
+			//UPDATE PREV_START AND PREV_END
+	var textArea = document.getElementById("write");
+		//startPosition = textArea.selectionStart;
+		//endPosition = textArea.selectionEnd;
+		//alert("A CLICK HAS BEEN MADE");
+		prevStart = textArea.selectionStart;
+		prevEnd = textArea.selectionEnd;
+		//prevStart = startPosition;
+		//prevEnd = endPosition;
+	console.log(prevStart);
+	console.log(prevEnd);
+		
+			toCheck=false;
+		}
 		//var textArea = document.getElementById("write")
 		startPosition = prevStart;
 		endPosition = prevEnd;
+		
 		
 		//inittiate previous end and startPosition
 		//when a new end and start position are taken, save them 
