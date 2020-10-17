@@ -18,8 +18,8 @@ body {
 max-width:75%;
 margin:auto;
 background:#2c3c47;
-	border-radius: 8px;
-  border: 1px solid #ddd;
+border-radius: 8px;
+border: 1px solid #ddd;
 
 }
 
@@ -79,6 +79,7 @@ textarea {
 	width:100%;
 	display:flex;
 	flex-direction:row;
+	flex-wrap:no-wrap;
 
 
   
@@ -112,13 +113,14 @@ textarea {
 	width: 40px;*/
     height: 40px;
 	font-size: 20px;
-	padding:10px;
+	padding:8px;
 
     line-height: 20px;
     text-align: center;
     /*background: #fff;
     border: 1px solid #f9f9f9;*/
 	flex-grow:1;
+	flex-wrap:no-wrap;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     }
@@ -167,48 +169,25 @@ textarea {
         }
 
 
-@media only screen and (max-width:600px){
+@media only screen and (max-width:573px){
 .wrapperKey{
-width:100%;
+max-width:100%;
+
 }
-#tab-btn,#del-btn, #caps-btn,#return-btn,#shift-btn,#rshift-btn{
-font-size: 2px;
-  padding:2px;
 }
+@media only screen and (max-width:431px){
 
 #keyboard button {
-  
-    
-	min-width: 15px;
-    height: 22px;
+ 
+    height: 40px;
 	font-size: 15px;
-	padding:1px;
-	line-height: 16px;
+	padding:5px;
 
     }
-        .capslock, .tab, .left-shift {
-        clear: left;
-        }
-            #keyboard .tab, #keyboard .delete {
-            width: 20px;
-            }
-            #keyboard .capslock {
-            width: 25px;
-            }
-            #keyboard .return {
-            width: 28px;
-            }
-            #keyboard .left-shift {
-            width: 38px;
-            }
-            #keyboard .right-shift {
-            width: 38px;
-            }
-			#keyboard .igletter {
-            width: 13px;
-            }
-       
-     
+
+
+
+
 
 
 }
