@@ -1,15 +1,33 @@
+$(document).ready(function(){
+	
+	if($(window).width() < 600){
+		//console.log("Less than 360");
+		$("#tab-btn").replaceWith('<button type="button" class="tab btn btn-outline-secondary" id="tab-btn"><img src="images/tab.png"></button>');
+		$("#del-btn").replaceWith('<button type="button" class="delete lastitem btn btn-outline-secondary" id="del-btn"><img src="images/del.png"></button>');
+		$("#caps-btn").replaceWith('<button type="button" class="capslock btn btn-outline-secondary" id="caps-btn"><img src="images/caps.png"></button>');
+		$("#return-btn").replaceWith('<button type="button" class="return lastitem btn btn-outline-secondary" id="return-btn"><img src="images/return.png"></button>');
+		$("#shift-btn").replaceWith('<button type="button" class="left-shift btn btn-outline-secondary" id="shift-btn"><img src="images/shift.png"></button>');
+		$("#rshift-btn").replaceWith(' <button type="button" class="right-shift lastitem btn btn-outline-secondary" id="rshift-btn"><img src="images/rshift.png"></button>');
+		
+	}
+});
+
+
 $(function(){
+	//Adding img tags for del, caps lock, shift and enter
 	
 	
 	//var $write = $('#write'),
-		shift = false,
+		var shift = false,
 		capslock = false;
+		keyCapsLock=false;
 		
 		var prevStart =$("#write").val.length ;
 		var prevEnd =$("#write").val.length ;
 		//var startPosition = prevStart;
 		//var endPosition = prevEnd;
-		
+		var xTriggered =0;
+		var countA=0,countE=0,countI=0,countO=0,countU=0;
 		
 				
 		let updateContent = function(new_content, is_clear=false) {
@@ -29,13 +47,17 @@ $(function(){
 		prevEnd=prevEnd + 1;
 		}
 		}
-	
-	$('#keyboard button').click(function(){
 		
+		let decodeEntity = function(encodedId,caps=false) {
+		  var diac = document.getElementById(encodedId);
+		  //textArea.innerHTML = encodedString;
+		  var diacVal = (caps==true)? diac.innerHTML.toUpperCase(): diac.innerHTML;
+		  return diacVal; 
+		}
 		
 		document.getElementById("write").addEventListener("click",function(){
-		console.log("A CLICK HAS BEEN MADE");
-		var textArea = document.getElementById("write")
+		//console.log("A CLICK HAS BEEN MADE");
+		var textArea = document.getElementById("write");
 		//startPosition = textArea.selectionStart;
 		//endPosition = textArea.selectionEnd;
 		//alert("A CLICK HAS BEEN MADE");
@@ -48,6 +70,210 @@ $(function(){
 		
 		},false);
 		
+	$( "#write" ).keyup(function(event){
+		if (event.which==20){
+			keyCapsLock = (keyCapsLock==false)? true: false;
+			
+		}
+		
+		
+	});	
+	$( "#write" ).keydown(function(e){
+		//Get area selection
+		var KtextArea = document.getElementById("write");
+		
+		//KstartPosition = KtextArea.selectionStart;
+		KstartPosition=prevStart;
+		KendPosition=prevEnd;
+		//KendPosition = KtextArea.selectionEnd;
+		//console.log("start is "+KstartPosition);
+		//console.log("end is "+KendPosition);
+		let Kcontent = $("#write").val();
+		
+	if (KstartPosition==KendPosition){
+		
+		var KfirstContent = Kcontent.substr(0,KstartPosition);
+		var KsecondContent = Kcontent.substr(KstartPosition,Kcontent.length);
+	}
+	else{
+		var KfirstContent = Kcontent.substr(0,KstartPosition);
+		var KsecondContent = Kcontent.substr(KendPosition,Kcontent.length);	
+		
+	}
+	let KCharacter = '';
+	//if (e.which=73){e.preventDefault();}
+  if ( e.shiftKey ) {
+	 // console.log("prev start after shift: "+prevStart);
+	  //console.log("prev end after shift: "+prevEnd);
+	  //countA=0;
+   // console.log('Shift key has been pressed');
+	 //FOR A
+	 if (e.which==65){
+		 
+		 
+		 countA++;
+		 console.log(countA);
+		 if (countA==1){
+			  //KfirstContent = KfirstContent.substr(0,KfirstContent.length-1);
+			 //console.log("first: "+KfirstContent);
+			 e.preventDefault();
+			 KCharacter = decodeEntity('a-dot',keyCapsLock);}
+		 else if (countA%3==2){
+			 KfirstContent = KfirstContent.substr(0,KfirstContent.length-1);
+			 //console.log("second: "+KfirstContent);
+			 e.preventDefault();
+			 KCharacter = decodeEntity('a-acute',keyCapsLock);
+			 }
+		 else if (countA%3==0){
+			 KfirstContent = KfirstContent.substr(0,KfirstContent.length-1);
+			 //console.log("third: "+KfirstContent);
+			 e.preventDefault();
+			 KCharacter = decodeEntity('a-grave',keyCapsLock);
+			 }
+		else if (countA>3 & countA%3==1){
+			 KfirstContent = KfirstContent.substr(0,KfirstContent.length-1);
+			 //console.log("first: "+KfirstContent);
+			 e.preventDefault();
+			 KCharacter = decodeEntity('a-dot',keyCapsLock);}
+		 
+	 }
+	 else{countA=0;}
+	 
+	 //FOR E
+	if (e.which==69){
+		countE++;
+		 //console.log(countA);
+		 if (countE==1){
+			  //KfirstContent = KfirstContent.substr(0,KfirstContent.length-1);
+			 //console.log("first: "+KfirstContent);
+			 e.preventDefault();
+			 KCharacter = decodeEntity('e-dot',keyCapsLock);}
+		 else if (countE%3==2){
+			 KfirstContent = KfirstContent.substr(0,KfirstContent.length-1);
+			 //console.log("second: "+KfirstContent);
+			 e.preventDefault();
+			 KCharacter = decodeEntity('e-acute',keyCapsLock);
+			 }
+		 else if (countE%3==0){
+			 KfirstContent = KfirstContent.substr(0,KfirstContent.length-1);
+			 //console.log("third: "+KfirstContent);
+			 e.preventDefault();
+			 KCharacter = decodeEntity('e-grave',keyCapsLock);
+			 }
+		else if (countE>3 & countE%3==1){
+			 KfirstContent = KfirstContent.substr(0,KfirstContent.length-1);
+			 //console.log("first: "+KfirstContent);
+			 e.preventDefault();
+			 KCharacter = decodeEntity('e-dot',keyCapsLock);}
+		
+	}
+	else{countE=0;}
+		
+	 //FOR I
+	 if (e.which==73){
+		 countI++;
+		 //console.log(countA);
+		 if (countI==1){
+			  //KfirstContent = KfirstContent.substr(0,KfirstContent.length-1);
+			 //console.log("first: "+KfirstContent);
+			 e.preventDefault();
+			 KCharacter = decodeEntity('i-dot',keyCapsLock);}
+		 else if (countI%3==2){
+			 KfirstContent = KfirstContent.substr(0,KfirstContent.length-1);
+			 //console.log("second: "+KfirstContent);
+			 e.preventDefault();
+			 KCharacter = decodeEntity('i-acute',keyCapsLock);
+			 }
+		 else if (countI%3==0){
+			 KfirstContent = KfirstContent.substr(0,KfirstContent.length-1);
+			 //console.log("third: "+KfirstContent);
+			 e.preventDefault();
+			 KCharacter = decodeEntity('i-grave',keyCapsLock);
+			 }
+		else if (countI>3 & countI%3==1){
+			 KfirstContent = KfirstContent.substr(0,KfirstContent.length-1);
+			 //console.log("first: "+KfirstContent);
+			 e.preventDefault();
+			 KCharacter = decodeEntity('i-dot',keyCapsLock);}
+		 
+	 }
+	 else{countI=0;}
+	  
+	 //FOR O
+	 if (e.which==79){
+		  countO++;
+		 //console.log(countA);
+		 if (countO==1){
+			  //KfirstContent = KfirstContent.substr(0,KfirstContent.length-1);
+			 //console.log("first: "+KfirstContent);
+			 e.preventDefault();
+			 KCharacter = decodeEntity('o-dot',keyCapsLock);}
+		 else if (countO%3==2){
+			 KfirstContent = KfirstContent.substr(0,KfirstContent.length-1);
+			 //console.log("second: "+KfirstContent);
+			 e.preventDefault();
+			 KCharacter = decodeEntity('o-acute',keyCapsLock);
+			 }
+		 else if (countO%3==0){
+			 KfirstContent = KfirstContent.substr(0,KfirstContent.length-1);
+			 //console.log("third: "+KfirstContent);
+			 e.preventDefault();
+			 KCharacter = decodeEntity('o-grave',keyCapsLock);
+			 }
+		else if (countO>3 & countO%3==1){
+			 KfirstContent = KfirstContent.substr(0,KfirstContent.length-1);
+			 //console.log("first: "+KfirstContent);
+			 e.preventDefault();
+			 KCharacter = decodeEntity('o-dot',keyCapsLock);}
+	 }
+	 else{countO=0;}
+	 
+	 //FOR U
+	 if (e.which==85){
+		  countU++;
+		 //console.log(countA);
+		 if (countU==1){
+			  //KfirstContent = KfirstContent.substr(0,KfirstContent.length-1);
+			 //console.log("first: "+KfirstContent);
+			 e.preventDefault();
+			 KCharacter = decodeEntity('u-dot',keyCapsLock);}
+		 else if (countU%3==2){
+			 KfirstContent = KfirstContent.substr(0,KfirstContent.length-1);
+			 //console.log("second: "+KfirstContent);
+			 e.preventDefault();
+			 KCharacter = decodeEntity('u-acute',keyCapsLock);
+			 }
+		 else if (countU%3==0){
+			 KfirstContent = KfirstContent.substr(0,KfirstContent.length-1);
+			 //console.log("third: "+KfirstContent);
+			 e.preventDefault();
+			 KCharacter = decodeEntity('u-grave',keyCapsLock);
+			 }
+		else if (countU>3 & countU%3==1){
+			 KfirstContent = KfirstContent.substr(0,KfirstContent.length-1);
+			 //console.log("first: "+KfirstContent);
+			 e.preventDefault();
+			 KCharacter = decodeEntity('u-dot',keyCapsLock);}
+	 }
+	 else{countU=0;}
+		 
+	//console.log("writing character");
+	
+  }
+  //countA=0;
+  //if KCharacter is not empty, updateContent, else do nothing
+  if (KCharacter!=''){
+  updateContent(KfirstContent+KCharacter+KsecondContent);
+  }
+	//console.log("first content: "+KfirstContent);
+	//console.log("char: "+KCharacter);
+	//console.log("2nd char: "+KsecondContent);
+  //xTriggered++;
+  //console.log("Handler for .keypress() called " + xTriggered + " time(s).");
+  //console.log(e.which);
+
+});
+	$('#keyboard button').click(function(){
 		
 		//var textArea = document.getElementById("write")
 		startPosition = prevStart;
@@ -57,9 +283,9 @@ $(function(){
 		//when a new end and start position are taken, save them 
 		//use them until there is another click event
 		
-		console.log("button clicked");
-		console.log(startPosition);
-		console.log(endPosition);
+		//console.log("button clicked");
+		//console.log(startPosition);
+		//console.log(endPosition);
 		let content = $("#write").val();
 	if (startPosition==endPosition){
 		var firstContent = content.substr(0,startPosition);
@@ -85,7 +311,7 @@ $(function(){
 			
 			shift = (shift === true) ? false : true;
 			capslock = false;
-			console.log("shift");
+			//console.log("shift");
 			return;
 		}
 		
@@ -94,7 +320,7 @@ $(function(){
 			$('.letter').toggleClass('uppercase');
 			$('.igletter').toggleClass('uppercase');
 			capslock = true;
-			console.log("caps");
+			//console.log("caps");
 			return;
 		}
 		
@@ -127,7 +353,7 @@ $(function(){
 			}
 			updateContent(content_after_deleting, true);
 			//$write.innerHTML = html.substr(0, html.length - 1);
-			console.log("delete");
+			//console.log("delete");
 			return;
 		}
 		
@@ -152,13 +378,16 @@ $(function(){
 
 		
 		
-		console.log("writing character");
+		//console.log("writing character");
 		// Add the character
 		//alert($write.value + character);
 		//$write.html(document.getElementById("write").value + character);
 		updateContent(firstContent+character+secondContent);
 		//$write.innerHTML = $write.value + character;
-		console.log(character);
+		//console.log(character);
 		//alert($write.innerHTML);
+		// console.log("prev start after ok: "+prevStart);
+	  //console.log("prev end after ok: "+prevEnd);
+		
 	});
 });
