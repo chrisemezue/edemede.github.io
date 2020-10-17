@@ -290,7 +290,7 @@ $(function(){
   //console.log(e.which);
 
 });
-	$('#keyboard button').click(function(){
+	$('.keyboard button').click(function(){
 		
 		if (toCheck){
 			//UPDATE PREV_START AND PREV_END
