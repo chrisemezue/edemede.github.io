@@ -2,9 +2,9 @@
 In the move to include African languages in natural language processing (NLP), it has become imperative to have a convenient means of typing in these African langugaes, which may contain unique accents, diacritics and completely new alphabets.
 
 The presence of a specialized keyboard for the Igbo language, will foster typing in the language, thereby increasing the amount of online presence of the language.
-# Pilot stage: Ed&#233;m&#233;d&#233;
+# Pilot stage: Ed&#233;m&#233;d&#233; for Igbo;
 Ed&#233;m&#233;d&#233; is free, open-source online keyboard with the special Igbo diacritics.
-Although in its early stage, Edemede contains the full functionalities to make one type easily. There will be updates to improve the platform on a regular basis.
+Although in its early stage, Ed&#233;m&#233;d&#233; contains the full functionalities to make one type easily. There will be updates to improve the platform on a regular basis.
 
 [Start typing with Ed&#233;m&#233;d&#233;!](https://chrisemezue.github.io/edemede.github.io/):smiley:
 # Features
@@ -18,9 +18,6 @@ We are always working to include features to make typing very easy and enjoyable
     * Shift + u to toggle between &#7909;, &#249;, &#250;
 * Auto complete suggestion
 
-# Copyright
-Edemede was designed by Chris C. Emezue and Handel C. Emezue.
-
 # Next phase
 The long-term goal of this project is to create a central platform for ***typing in as many African languages as possible***.
 * Implementation with mobile devices (Android and OS).
@@ -30,3 +27,6 @@ The long-term goal of this project is to create a central platform for ***typing
 # Contribution
 All contributions are welcome and appreciated!
 
+# Copyright
+Chris C. Emezue
+Handel C. Emezue.
