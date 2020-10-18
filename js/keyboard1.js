@@ -351,7 +351,7 @@ $(function(){
 
 });
 	$('#keyboard button').click(function(){
-		console.log("Button clicked");
+		//console.log("Button clicked");
 		toEnd=false;
 		//alert("Button clicked");
 		if (toCheck){
@@ -364,8 +364,8 @@ $(function(){
 		prevEnd = textArea.selectionEnd;
 		//prevStart = startPosition;
 		//prevEnd = endPosition;
-	console.log(prevStart);
-	console.log(prevEnd);
+	//console.log(prevStart);
+	//console.log(prevEnd);
 		
 			toCheck=false;
 		}
@@ -482,7 +482,7 @@ $(function(){
 		
 	if ($this.hasClass('space') ||$this.hasClass('tab')|| $this.hasClass('return')|| $this.hasClass('left-shift')|| $this.hasClass('right-shift') )
 	{
-		console.log("Found a class");
+		//console.log("Found a class");
 		
 		//console.log("Has class");
 		toEnd=true;
@@ -491,9 +491,9 @@ $(function(){
 	}
 	
 	if (!toEnd){
-		console.log("No class, adding string");
+		//console.log("No class, adding string");
 		strCompare+=character;
-		console.log(strCompare);
+		//console.log(strCompare);
 		
 		compare(strCompare,lines);
 		
@@ -527,7 +527,7 @@ $(".suggestBtn").click(function(){
 		//alert($write.value + character);
 		
 		//$write.html(document.getElementById("write").value + character);
-		console.log("New fcon:" + firstContent);
+		//console.log("New fcon:" + firstContent);
 		updateContent(firstContent+character+secondContent);
 		//$write.innerHTML = $write.value + character;
 		//console.log(character);
