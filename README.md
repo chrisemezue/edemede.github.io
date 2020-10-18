@@ -10,7 +10,7 @@ Although in its early stage, Edemede contains the full functionalities to make o
 # Features
 * Sleek design
 * Integration with PC Keyboard: while typing with your PC keyboard, you can press:
-    * Shift + a to toggle between `&#7841,&#224,&#225`
+    * Shift + a to toggle between &#8364,&#7841,&#224,&#225
     * Shift + e to toggle between a,a,a
     * Shift + i to toggle between a,a,a
     * Shift + o to toggle between a,a,a
