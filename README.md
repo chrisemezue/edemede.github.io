@@ -9,13 +9,13 @@ Although in its early stage, Edemede contains the full functionalities to make o
 [Start typing with Edemede!](https://chrisemezue.github.io/edemede.github.io/)
 # Features
 * Sleek design
-* Integration with PC Keyboard:
-  While typing with your PC keyboard, you can press:
-    Shift + a to toggle between a,a,a
-    Shift + e to toggle between a,a,a
-    Shift + i to toggle between a,a,a
-    Shift + o to toggle between a,a,a
-    Shift + u to toggle between a,a,a
+* Integration with PC Keyboard
+While typing with your PC keyboard, you can press:
+    * Shift + a to toggle between a,a,a
+    * Shift + e to toggle between a,a,a
+    * Shift + i to toggle between a,a,a
+    * Shift + o to toggle between a,a,a
+    * Shift + u to toggle between a,a,a
 * Auto complete suggestion
 
 # Copyright
