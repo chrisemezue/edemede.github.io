@@ -28,5 +28,6 @@ The long-term goal of this project is to create a central platform for ***typing
 All contributions are welcome and appreciated!
 
 # Copyright
-Chris C. Emezue
-Handel C. Emezue.
+Chris C. Emezue | Handel C. Emezue.
+Please do not reproduce any part of the code(s) in this project.
+
