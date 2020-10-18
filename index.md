@@ -19,7 +19,12 @@
 </div>
       <!--Body content-->
 &nbsp;
+
 <div class="wrapperKey">
+<div class="row" id="suggestions">
+		<!--<div id="suggestions">
+		</div>-->
+</div>
 <div class = "row" id ="keyboard">
 
 	<!--<div class ="container1">-->
@@ -142,6 +147,7 @@
 
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.2.11/dist/tf.min.js"></script>
 <script type="text/javascript" src="js/keyboard1.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 </body>
