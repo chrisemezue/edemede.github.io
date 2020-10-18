@@ -10,11 +10,11 @@ Although in its early stage, Edemede contains the full functionalities to make o
 # Features
 * Sleek design
 * Integration with PC Keyboard: while typing with your PC keyboard, you can press:
-    * Shift + a to toggle between &#8364;,&#7841;,&#224;,&#225;
-    * Shift + e to toggle between a,a,a
-    * Shift + i to toggle between a,a,a
-    * Shift + o to toggle between a,a,a
-    * Shift + u to toggle between a,a,a
+    * Shift + a to toggle between &#7841;, &#224;, &#225;
+    * Shift + e to toggle between &#7865;, &#232; , &#233;
+    * Shift + i to toggle between &#7883;, &#236;, &#237;
+    * Shift + o to toggle between &#7885;, &#242;, &#243;
+    * Shift + u to toggle between &#7909;, &#249;, &#250;
 * Auto complete suggestion
 
 # Copyright
