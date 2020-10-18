@@ -352,7 +352,7 @@ $(function(){
 });
 	$('#keyboard button').click(function(){
 		console.log("Button clicked");
-		
+		toEnd=false;
 		//alert("Button clicked");
 		if (toCheck){
 			//UPDATE PREV_START AND PREV_END
@@ -400,6 +400,8 @@ $(function(){
 			//console.log(character);
 		// Shift keys
 		if ($this.hasClass('left-shift') || $this.hasClass('right-shift')) {
+			toEnd=true;
+		strCompare='';
 			$('.letter').toggleClass('uppercase');
 			$('.igletter').toggleClass('uppercase');
 			$('.symbol span').toggle();
@@ -410,6 +412,7 @@ $(function(){
 			return;
 		}
 		
+		
 		// Caps lock
 		if ($this.hasClass('capslock')) {
 			$('.letter').toggleClass('uppercase');
@@ -419,8 +422,11 @@ $(function(){
 			return;
 		}
 		
+		
 		// Delete
 		if ($this.hasClass('delete')) {
+			strCompare = strCompare.substr(0,strCompare.length -1)
+			//console.log("after deletion: "+strCompare);
 			//var html = document.getElementById("write").value;
 			//var html = $write.value;
 			///console.log(html);
@@ -473,25 +479,21 @@ $(function(){
 
 		
 		//CODE FOR SUGGESTION BOX
-		toEnd=false;
-	if ($this.hasClass('delete') || $this.hasClass('space') ||$this.hasClass('tab')|| $this.hasClass('return')|| $this.hasClass('left-shift')|| $this.hasClass('right-shift') )
+		
+	if ($this.hasClass('space') ||$this.hasClass('tab')|| $this.hasClass('return')|| $this.hasClass('left-shift')|| $this.hasClass('right-shift') )
 	{
-		if ($this.hasClass('delete') ){
-		strCompare = strCompare.substr(0,strCompare.length -1)
-		console.log("after deletion: "+strCompare);
-	}
-	else{
+		console.log("Found a class");
+		
 		//console.log("Has class");
 		toEnd=true;
 		strCompare='';
-	}
+	
 	}
 	
-	else{
-		strCompare+=character;
-		
-	}
 	if (!toEnd){
+		console.log("No class, adding string");
+		strCompare+=character;
+		console.log(strCompare);
 		
 		compare(strCompare,lines);
 		
