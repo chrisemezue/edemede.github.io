@@ -32,6 +32,7 @@ $(function(){
 		keyCapsLock=false;
 		
 		var toCheck=false;
+		var suggestionsToShow=8;
 		
 		var prevStart =$("#write").val.length ;
 		var prevEnd =$("#write").val.length ;
@@ -50,13 +51,28 @@ $(function(){
 	//alert(sArray);
 	//alert(occurences);
 	if(occurences.length!=0){
+		if(occurences.length>suggestionsToShow){
 		var newOccurence=[];
-		for(var i=0;i<8;i++){
-			var rand = occurences[Math.floor(Math.random() * occurences.length)]
-				newOccurence.push(rand);
+		var oldIndex=[];
+		var rand;
+		for(var i=0;i<suggestionsToShow;i++){
+			rand = occurences[Math.floor(Math.random() * occurences.length)]
+			//console.log(oldIndex.includes(rand));
+			while (oldIndex.includes(rand)){
+			console.log("Started while loop");
+			rand = occurences[Math.floor(Math.random() * occurences.length)]
+			//console.log("random is "+rand);
+			}
+			oldIndex.push(rand);
+			newOccurence.push(rand);
+			rand= occurences.length+1;
 		}
 		
 		newOccurence.forEach(showSuggestions);
+		}
+		else{
+				occurences.forEach(showSuggestions);
+		}
 		//alert(sArray);	
 		//$("#suggestions").val("");
 		//$("#suggestions").html("");
@@ -98,6 +114,7 @@ $(function(){
 		
 		document.getElementById("write").addEventListener("click",function(){
 		//console.log("A CLICK HAS BEEN MADE");
+		
 		var textArea = document.getElementById("write");
 		//startPosition = textArea.selectionStart;
 		//endPosition = textArea.selectionEnd;
@@ -121,6 +138,7 @@ $(function(){
 		
 	});	
 	$( "#write" ).keydown(function(e){
+		//console.log("Key pressed");
 		strCompare='';
 		toCheck=true;
 		//Get area selection
@@ -333,6 +351,8 @@ $(function(){
 
 });
 	$('#keyboard button').click(function(){
+		console.log("Button clicked");
+		
 		//alert("Button clicked");
 		if (toCheck){
 			//UPDATE PREV_START AND PREV_END
