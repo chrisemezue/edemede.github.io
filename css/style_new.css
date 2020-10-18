@@ -31,6 +31,7 @@ h1 {
   font-size: 1.5rem;
 }
 
+
 textarea {
   width: 100%;
   min-height: 250px;
@@ -47,7 +48,7 @@ textarea {
   }
   &[placeholder] { 
     font-style: italic;
-    font-size: 10px;
+    font-size: 8px;
   }
 }
 
@@ -179,6 +180,16 @@ textarea {
 .wrapperKey{
 max-width:100%;
 
+
+
+}
+
+textarea {
+   min-height: 160px;
+}
+::placeholder{
+	 font-style: italic;
+    font-size: 10px;
 }
 }
 @media only screen and (max-width:431px){
