@@ -65,11 +65,20 @@ textarea {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  
-
-
-
+ 
 }
+
+#cText img, #settings img{
+   	width: 21;
+    height: 21;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+    
+    
+}
+
 #keyboard, #suggestions {
  /* We first create a flex layout context */
   display: flex;
@@ -203,10 +212,6 @@ textarea {
 
 
 
-
-
-
 }
-		
 
 		

@@ -1,4 +1,16 @@
 $(document).ready(function(){
+    var settingsMsg = document.getElementById("infoMsg");
+    //alert(x.css('display'));
+  settingsMsg.style.display ="none";
+     $("#settings").click(function(){
+         //$("#infoMsg").replaceWith('')
+         settingsMsg.style.display ="inherit";
+    $('.toast').toast('show');
+  });
+  $('.closeBtn').click(function(){
+      settingsMsg.style.display ="none";
+      
+  });
 	
 	if($(window).width() < 600){
 		$('#write').prop('readonly', true);
@@ -11,6 +23,10 @@ $(document).ready(function(){
 		$("#rshift-btn").replaceWith(' <button type="button" class="right-shift lastitem btn btn-outline-secondary" id="rshift-btn"><img src="images/rshift.png"></button>');
 		
 	}
+    
+    
+    
+   
 });
 
 jQuery.get('essentials/ig-vocab.txt', function(data) {
@@ -59,7 +75,7 @@ $(function(){
 			rand = occurences[Math.floor(Math.random() * occurences.length)]
 			//console.log(oldIndex.includes(rand));
 			while (oldIndex.includes(rand)){
-			console.log("Started while loop");
+			//console.log("Started while loop");
 			rand = occurences[Math.floor(Math.random() * occurences.length)]
 			//console.log("random is "+rand);
 			}
@@ -111,6 +127,23 @@ $(function(){
 		  var diacVal = (caps==true)? diac.innerHTML.toUpperCase(): diac.innerHTML;
 		  return diacVal; 
 		}
+        let countArea = function(){
+            var resultArray = [];
+            var strA= document.getElementById("write");
+            //$("#write").html("");
+            //alert(strA.value);
+              var str = strA.value.replace(/[\t\n\r\.\?\!]/gm,' ');
+              var wordArray = str.split(" ");
+              for (var i = 0; i < wordArray.length; i++) {
+                var item = wordArray[i].trim();
+                if(item.length > 0){
+                  resultArray.push(item);
+                }
+          }
+          document.getElementById("current").innerText = resultArray.length;
+		
+            
+        }
 		
 		document.getElementById("write").addEventListener("click",function(){
 		//console.log("A CLICK HAS BEEN MADE");
@@ -134,10 +167,15 @@ $(function(){
 			keyCapsLock = (keyCapsLock==false)? true: false;
 			
 		}
+        countArea();
 		
 		
 	});	
+    
+ 	
+    
 	$( "#write" ).keydown(function(e){
+       
 		//console.log("Key pressed");
 		strCompare='';
 		toCheck=true;
@@ -175,8 +213,8 @@ $(function(){
 		prevEnd = textArea.selectionEnd;
 		//prevStart = startPosition;
 		//prevEnd = endPosition;
-	console.log(prevStart);
-	console.log(prevEnd);
+	//console.log(prevStart);
+	//console.log(prevEnd);
 		
 			toCheck=false;
 		}
@@ -189,7 +227,7 @@ $(function(){
 		 
 		 
 		 countA++;
-		 console.log(countA);
+		// console.log(countA);
 		 if (countA==1){
 			  //KfirstContent = KfirstContent.substr(0,KfirstContent.length-1);
 			 //console.log("first: "+KfirstContent);
@@ -348,9 +386,10 @@ $(function(){
   //xTriggered++;
   //console.log("Handler for .keypress() called " + xTriggered + " time(s).");
   //console.log(e.which);
-
+ countArea();
 });
 	$('#keyboard button').click(function(){
+     
 		//console.log("Button clicked");
 		toEnd=false;
 		//alert("Button clicked");
@@ -455,6 +494,7 @@ $(function(){
 			updateContent(content_after_deleting, true);
 			//$write.innerHTML = html.substr(0, html.length - 1);
 			//console.log("delete");
+            countArea();
 			return;
 		}
 		
@@ -504,11 +544,11 @@ $(".suggestBtn").click(function(){
 	//get val of button
 	 //var btnChar = decodeEntity('suggestBtn');
 	 var btnChar = $(this).html();
-	 console.log(btnChar);
-	 console.log(strCompare.length);
-	 console.log(prevStart);
-	 console.log(firstContent);
-	 console.log("Second content: "+secondContent);
+	 //console.log(btnChar);
+	// console.log(strCompare.length);
+	 //console.log(prevStart);
+	// console.log(firstContent);
+	// console.log("Second content: "+secondContent);
 	 
 	 //remove from 1st content with strcomapre length -1 
 	firstContent=firstContent.substr(0,firstContent.length-(strCompare.length-1));
@@ -519,6 +559,7 @@ $(".suggestBtn").click(function(){
 	//update
 	
 });
+
 
 		
 		
@@ -534,7 +575,25 @@ $(".suggestBtn").click(function(){
 		//alert($write.innerHTML);
 		// console.log("prev start after ok: "+prevStart);
 	  //console.log("prev end after ok: "+prevEnd);
-		
+		countArea();
 	});
 });
+$(".copyText").click(function(){
+    
+    var copyText = document.getElementById("write");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  
+  //var tooltip = document.getElementById("myTooltip");
+  //tooltip.innerHTML = "Copied: " + copyText.value;
+ 
+ //Some notification
+ //var tooltip = document.getElementById("myTooltip");
+  //tooltip.innerHTML = "Copy to clipboard";
+    
+    
+    
+});
+
 });
