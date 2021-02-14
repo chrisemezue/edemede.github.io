@@ -27,7 +27,7 @@ $(document).ready(function(){
         
         collapseBtn = document.getElementById("collapse")
         collapseBtn.style.display = 'none';
-        if (collapseBtn.style.display == 'none'){$('#write').prop('readonly', false);}
+        
         
     
     }
