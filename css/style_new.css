@@ -68,16 +68,24 @@ textarea {
  
 }
 
-#cText img, #settings img{
+#cText img, #settings img, #saveFile img{
    	width: 21;
     height: 21;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  
-    
-    
+ 
 }
+
+.copyText,.settings,.saveText, #collapse {
+    border-color: #508fab;
+    
+   
+    /*#abc9d6*/
+  
+ 
+}
+#settings{float:right;}
 
 #keyboard, #suggestions {
  /* We first create a flex layout context */

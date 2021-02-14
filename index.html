@@ -14,17 +14,14 @@
  
 
 
-<button title="Copy all" class="copyText" id="cText"><img src="images/copy.png"></button>
-<button title="Settings" id="settings"><img src="images/settings.png"></button>
-<div id="the-count">
-    <span>ọnụ ọgụgụ:</span>
-    <span id="current">0</span>
-    
-  </div>
+<button title="Copy all" class="copyText" id="cText"><img src="images/copy1.png"></button>
+<button title="Save" class="saveText" id="saveFile"><img src="images/save.png"></button>
+<button title="Settings" class="settings" id="settings"><img src="images/settings.png"></button>
+
 <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-autohide="false" id="infoMsg" style="position: relative;">
   <div class="toast-header">
     <strong class="mr-auto">Integration with PC Keyboard</strong>
-   <small>&#169<a href="https://github.com/chrisemezue/edemede.github.io">Chris Emezue</a></small>
+   <small>&#169<a href="https://github.com/chrisemezue/edemede.github.io">Ed&#233m&#233d&#233</a></small>
 
     <button type="button" class="ml-2 mb-1 close closeBtn" data-dismiss="toast" aria-label="Close">
       <span aria-hidden="true">&times;</span>
@@ -32,11 +29,14 @@
   </div>
   <div class="toast-body">
   <p>
-Shift + a to toggle between ạ , à , á<br/>
-Shift + e to toggle between ẹ , è , é<br/>
-Shift + i to toggle between ị , ì , í<br/>
-Shift + o to toggle between ọ , ò , ó<br/>
-Shift + u to toggle between ụ , ù , ú <br/>
+Shift + a to toggle among |ạ|à|á|&#257|&#7841;&#768;|&#7841;&#769;| <br/>
+Shift + e to toggle among |ẹ|è|é|&#275|&#7865;&#768;|&#7865;&#769;|<br/>
+Shift + i to toggle among |ị|ì|í|<br/>
+Shift + o to toggle among |ọ|ò|ó|&#333|&#7885;&#768;|&#7885;&#769;|<br/>
+Shift + u to toggle among |ụ|ù|ú|&#363|&#7909;&#768;|&#7909;&#769;|<br/>
+Shift + n to toggle between |n&#772;|<br/>
+<hr>
+Use 'Collapse Keyboard' to create space when using PC Keyboard
 
    <p>
   </div>
@@ -45,12 +45,21 @@ Shift + u to toggle between ụ , ù , ú <br/>
 
 
   <textarea name="the-textarea" id="write" placeholder="Pinye ma obu dezie ed&#233m&#233d&#233 gi ebe a...&#10;Type or edit your work here..."autofocus></textarea>
+  <!--Option to collapse keyboard if using PC keyboard-->
+  <button type="button" class="btn" id="collapse">Collapse Keyboard</button>
   
+  <div id="the-count">
+    <span>ọnụ ọgụgụ:</span>
+    <span id="current">0</span>
+    
+  </div>
 </div>
+
       <!--Body content-->
 &nbsp;
 
-<div class="wrapperKey">
+<div class="wrapperKey" id="keyboardWrapper">
+
 <div class="row" id="suggestions">
 		<!--<div id="suggestions">
 		</div>-->
@@ -123,6 +132,33 @@ Shift + u to toggle between ụ , ù , ú <br/>
 		<!--<div class="item1">-->
 		
 </div>
+<!--Added more diacritics on 14.02.2021 -->
+<div class="row" id="keyboard">
+
+		 <button type="button" class="igletter btn btn-outline-secondary" id="a-macron">&#257</button>
+		 <button type="button" class="igletter igdb btn btn-outline-secondary" id="a-acute-dot">&#7841;&#768;</button>
+		 <button type="button" class="igletter igdb btn btn-outline-secondary" id="a-grave-dot">&#7841;&#769;</button>
+		 <button type="button" class="igletter btn btn-outline-secondary" id="e-macron">&#275</button>
+		 <button type="button" class="igletter igdb btn btn-outline-secondary" id="e-acute-dot">&#7865;&#768;</button>
+		 <button type="button" class="igletter igdb btn btn-outline-secondary" id="e-grave-dot">&#7865;&#769;</button>
+		 <button type="button" class="igletter btn btn-outline-secondary" id="u-macron">&#363</button>
+		 <button type="button" class="igletter igdb btn btn-outline-secondary" id="u-acute-dot">&#7909;&#768;</button>
+		 <button type="button" class="igletter igdb btn btn-outline-secondary" id="u-grave-dot">&#7909;&#769;</button>
+		 <!--<button type="button" class="igletter btn btn-outline-secondary" id="i-macron">&#299</button>
+		 <button type="button" class="igletter btn btn-outline-secondary" id="i-acute">&#305;&#769;&#803;</button>
+		 <button type="button" class="igletter btn btn-outline-secondary" id="i-grave">&#7883;&#768;</button>-->
+		 <button type="button" class="igletter btn btn-outline-secondary" id="o-macron">&#333</button>
+		 <button type="button" class="igletter igdb btn btn-outline-secondary" id="o-acute-dot">&#7885;&#768;</button>
+		 <button type="button" class="igletter igdb btn btn-outline-secondary" id="o-grave-dot">&#7885;&#769;</button>
+         <!--to add O when in mobile mode-->
+         <span id="add-o"></span>
+		 
+		<!--</div>-->
+		<!--<div class="item1">-->
+		
+</div>
+
+
 <div class="row" id="keyboard">
 		 <button type="button" class="capslock btn btn-outline-secondary" id="caps-btn">caps</button>
 		<button type="button" class="letter btn btn-outline-secondary">a</button>
@@ -146,7 +182,8 @@ Shift + u to toggle between ụ , ù , ú <br/>
 		<button type="button" class="letter btn btn-outline-secondary">c</button>
 		<button type="button" class="letter btn btn-outline-secondary">v</button>
 		<button type="button" class="letter btn btn-outline-secondary">b</button>
-		<button type="button" class="letter btn btn-outline-secondary">n</button>
+		<button type="button" class="letter btn btn-outline-secondary" id="normalN">n</button>
+         <button type="button" class="igletter igdb btn btn-outline-secondary" id="n-macron">n&#772;</button>
 		<button type="button" class="letter btn btn-outline-secondary">m</button>
        
        <button type="button" class="symbol btn btn-outline-secondary"><span class="off">,</span><span class="on">&lt;</span></button>
@@ -166,6 +203,7 @@ Shift + u to toggle between ụ , ù , ú <br/>
 		<!--</div>-->
 		
 		</div>
+        
 		
     
 
