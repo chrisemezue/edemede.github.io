@@ -36,6 +36,7 @@ textarea {
   width: 100%;
   min-height: 250px;
   resize: none;
+  font-size: 16px;
   border-radius: 8px;
   border: 1px solid #ddd;
   padding: 0.5rem;
@@ -46,10 +47,7 @@ textarea {
     border: 1px solid darken(#ddd, 5%);
     box-shadow: inset 0 0 0.5rem darken(#ddd, 5%);
   }
-  &[placeholder] { 
-    font-style: italic;
-    font-size: 8px;
-  }
+
 }
 
 #the-count {

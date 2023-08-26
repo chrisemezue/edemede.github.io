@@ -46,7 +46,8 @@ $(function(){
 		
 	var words = lines.join(' ');
 	var toEnd = false;
-	var strCompare=''
+	var strCompare='';
+    var strCompareKB='';
 	var sArray='<div id="suggestions">';
 	
 	
@@ -224,6 +225,7 @@ $(function(){
 		prevEnd = textArea.selectionEnd;
 		//prevStart = startPosition;
 		//prevEnd = endPosition;
+        console.log("Did checking");
 	//console.log(prevStart);
 	//console.log(prevEnd);
 		
@@ -405,6 +407,7 @@ $(function(){
 			 //console.log("third: "+KfirstContent);
 			 e.preventDefault();
 			 KCharacter = decodeEntity('o-acute-dot',keyCapsLock);
+             val=2;
 			 }
              
              else if (countO%6==0){
@@ -412,6 +415,7 @@ $(function(){
 			 //console.log("third: "+KfirstContent);
 			 e.preventDefault();
 			 KCharacter = decodeEntity('o-grave-dot',keyCapsLock);
+             val=2;
 			 }
 		else if (countO>6 & countO%6==1){
 			 KfirstContent = KfirstContent.substr(0,KfirstContent.length-2);
@@ -453,12 +457,14 @@ $(function(){
 			 //console.log("third: "+KfirstContent);
 			 e.preventDefault();
 			 KCharacter = decodeEntity('u-acute-dot',keyCapsLock);
+             val=2;
 			 }
              else if (countU%6==0){
 			 KfirstContent = KfirstContent.substr(0,KfirstContent.length-2);
 			 //console.log("third: "+KfirstContent);
 			 e.preventDefault();
 			 KCharacter = decodeEntity('u-grave-dot',keyCapsLock);
+             val=2;
 			 }
 		else if (countU>6 & countU%6==1){
 			 KfirstContent = KfirstContent.substr(0,KfirstContent.length-2);
@@ -497,12 +503,51 @@ $(function(){
 	//console.log("writing character");
 	
   }
+  if (KCharacter!=''){
+      strCompareKB+=KCharacter;
+  updateContent(KfirstContent+KCharacter+KsecondContent,false,val);
+  
+  }
+  
+  console.log(prevStart);
+  console.log(prevEnd);
   //countA=0;
   //if KCharacter is not empty, updateContent, else do nothing
-  if (KCharacter!=''){
-      
-  updateContent(KfirstContent+KCharacter+KsecondContent,false,val);
-  }
+  
+  /**
+  //Write a function to update strCompareKB based on the change in text area.
+   var tArea = document.getElementById("write");
+  prevStart = tArea.selectionStart;
+    prevEnd = tArea.selectionEnd;
+  KDstartPosition=prevStart;
+		KDendPosition=prevEnd;
+		//KendPosition = KtextArea.selectionEnd;
+		//console.log("start is "+KstartPosition);
+		//console.log("end is "+KendPosition);
+		let KDcontent = $("#write").val();
+		
+	if (KDstartPosition==KDendPosition){
+		
+		var KDfirstContent = KDcontent.substr(0,KDstartPosition);
+		var KDsecondContent = KDcontent.substr(KDstartPosition,KDcontent.length);
+	}
+	else{
+		var KDfirstContent = KDcontent.substr(0,KDstartPosition);
+		var KDsecondContent = KDcontent.substr(KDendPosition,KDcontent.length);	
+		
+	}
+    console.log('first:'+KDfirstContent);
+    console.log('second:'+KDsecondContent);
+    textR = KDcontent.substr(KDstartPosition-1,KDstartPosition+1);
+    console.log("text:"+textR);
+   
+  toChangeContent =  KDfirstContent.substr(0,KDfirstContent.length-1);
+  //console.log(toChangeContent);
+  
+  strCompare+=KCharacter;
+    **/
+  //compare(strCompare,lines);
+  
 	//console.log("first content: "+KfirstContent);
 	//console.log("char: "+KCharacter);
 	//console.log("2nd char: "+KsecondContent);
